@@ -1,0 +1,17 @@
+name: GitHub Action Demo
+on: [push]
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Job Was successfully created by a ${{}}"
+      - run: echo "This job is now running on ${{ runner.os }}"
+      - run: echo "Name of the branch is ${{ github.ref }}"
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "The ${{ github.repository }} has been checked out"
+      - name: List files in repository
+        run: |
+          ls ${{ github.workspace}}
+      - run: echo "this job status is ${{ job.status }}"
